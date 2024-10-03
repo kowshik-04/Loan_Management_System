@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('/images/2.jpg'); /* Update to your background image path */
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center; /* Center the background image */
+            background-repeat: no-repeat; /* Prevent repeating the image */
+            height: 100vh; /* Full height of the viewport */
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+        }
+
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.8); /* White background with opacity */
+            border-radius: 10px; /* Rounded corners */
+            padding: 30px; /* Inner spacing */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Shadow effect */
+            width: 400px; /* Fixed width */
+        }
+
+        h2 {
+            color: #333; /* Dark color for the heading */
+            margin-bottom: 20px; /* Spacing below the heading */
+        }
+
+        .form-label {
+            font-weight: bold; /* Bold labels */
+        }
+
+        .btn-primary {
+            width: 100%; /* Full width for the button */
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2 align="center">Admin Login</h2>
+        <form action="/search" method="post">
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

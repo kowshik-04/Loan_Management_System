@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Loan Eligibility Calculator</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <script>
+        function calculateLoan() {
+            var amount = parseFloat(document.getElementById("amount").value);
+            var interestRate = parseFloat(document.getElementById("interestRate").value);
+            var term = parseFloat(document.getElementById("term").value);
+
+            var monthlyInterestRate = (interestRate / 100) / 12;
+            var numberOfPayments = term * 12;
+            var monthlyPayment = (amount * monthlyInterestRate) / (1 - Math.pow(1 + monthlyInterestRate, -numberOfPayments));
+
+            document.getElementById("monthlyPayment").innerHTML = "Monthly Payment: $" + monthlyPayment.toFixed(2);
+        }
+    </script>
+</head>
+<body>
+<div class="container mt-5">
+    <h2 align="center">Loan Eligibility Calculator</h2>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="amount">Loan Amount</label>
+                <input type="number" class="form-control" id="amount" placeholder="Enter loan amount">
+            </div>
+            <div class="form-group">
+                <label for="interestRate">Interest Rate (%)</label>
+                <input type="number" class="form-control" id="interestRate" placeholder="Enter interest rate">
+            </div>
+            <div class="form-group">
+                <label for="term">Loan Term (Years)</label>
+                <input type="number" class="form-control" id="term" placeholder="Enter loan term">
+            </div>
+            <button class="btn btn-primary" onclick="calculateLoan()">Calculate</button>
+
+            <div class="mt-3">
+                <h4 id="monthlyPayment"></h4>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
